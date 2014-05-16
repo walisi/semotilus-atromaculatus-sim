@@ -10,8 +10,7 @@ class TestSimulation(unittest.TestCase):
             WaterBody('Saint-Jean', longitude(78,  1, 48), Temperature(3.23, 8.3, 67)),
             WaterBody('Etchemin',   longitude(70, 29, 40), Temperature(3.53, 9.4, 67))
             ]
-        #self.assertEqual(chubmodel.getBestLake(datetime.date.today()).name, 'Saint-Jean')
-        self.assertTrue(True)
+        self.assertEqual(chubmodel.getBestLake(hydro_data, 280).name, 'Saint-Jean')
 
     def test_longitude(self):
         self.assertEqual(1, longitude(0,0,1))

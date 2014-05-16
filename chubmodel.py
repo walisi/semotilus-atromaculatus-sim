@@ -1,12 +1,22 @@
 import math
 
-def getBestLake(day):
-    raise NotImplementedError()
+def getBestLake(dataset, day):
+    #todo Check for valid parameters
+    retval = dataset[0]
+    k = getWaterCoef(retval, day)
+    for i in range(1, len(dataset)):
+        water = dataset[i]
+        ki = getWaterCoef(water, day)
+        if (k > ki):
+            retval = water
+            k = ki
+    return retval
+
 
 def longitude(degrees, minutes, seconds):
     #Return longitude in seconds
     return (((degrees * 60) + minutes) * 60) + seconds;
-    
+
 class WaterBody:
     def __init__(self, name, pos, temperature_model):
         self.name = name
@@ -31,3 +41,12 @@ class Temperature:
         if day > 365:
             day = 365
         return math.cos(self.K * (day - self.coldestDay) + math.pi) * self.A + self.D
+
+bestTemperature = Temperature(0.5, 5, 62)
+
+def getWaterCoef(water, day):
+    #Longitude really has nothing to do with any of this...
+    retval = (water.temperature_model.getTemperature(day) -
+              bestTemperature.getTemperature(day)) ** 2
+    print('water coefficient ' + str(retval))
+    return retval
