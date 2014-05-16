@@ -27,3 +27,25 @@ Discussion
 
 Certains plans d'eau peuvent couvrir une grande étendue où la répartition de
 la ressource est variable. Ces plans d'eau devrait être divisés en secteurs.
+
+2. Température de l'eau
+
+La température du plan d'eau est basée sur le calcul d'une courbe sinusoïdale.
+C'est peut-être un indicateur valable du coefficient de température général du
+bassin d'eau à un moment de l'année, même si la température est très variable
+d'un point à l'autre. La température réelle pourrait provenir d'un recensement,
+si ces données étaient disponibles.
+
+3. Exécution de la simulation
+
+La simulation est exécutée hors-ligne, à partir d'une collection limitée de
+données statiques, avec un résultat unique. L'utilisation d'une base de données
+exhaustive nécessiterait un moteur de simulation plus performant. Une interface
+améliorée pourrait permettre d'interroger le modèle en ligne, avec un résultat
+graphique sous forme de classement.
+
+4. Evolution de la répartition de la ressource
+
+Le modèle de simulation est statique. Il ne réflète pas l'évolution de la
+population de l'espèce d'une année à l'autre, à cause de différents facteurs :
+population antérieure, restriction à l'exploitation, etc.
