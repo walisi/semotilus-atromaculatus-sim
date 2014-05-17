@@ -18,7 +18,7 @@ paramètre contenant la date. Le résultat affiché est le nom du meilleur plan
 d'eau pour la date donnée. La date d'aujourd'hui est utilisée si aucune date
 n'est donnée. La date est composée du mois suivi d'un tiret et du jour.
 
-python semotilus_atromaculatus_simulator.py 07-15
+python -m semotilus_atromaculatus_simulator 07-15
 
 Discussion
 ==========

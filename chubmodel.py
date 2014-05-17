@@ -10,6 +10,7 @@ def getBestLake(dataset, day):
         if (k > ki):
             retval = water
             k = ki
+    #print(str(day))
     return retval
 
 
@@ -43,10 +44,14 @@ class Temperature:
         return math.cos(self.K * (day - self.coldestDay) + math.pi) * self.A + self.D
 
 bestTemperature = Temperature(0.5, 5, 62)
+bestLongitude = longitude(67,34,38)
+R = float(2 ** -20)
 
 def getWaterCoef(water, day):
-    #Longitude really has nothing to do with any of this...
-    retval = (water.temperature_model.getTemperature(day) -
-              bestTemperature.getTemperature(day)) ** 2
-    print('water coefficient ' + str(retval))
+    t = bestTemperature.getTemperature(day)
+    t0 = water.temperature_model.getTemperature(day)
+    dt = ((t - t0) ** 4)
+    dl = (water.pos - bestLongitude) ** 2
+    retval = dt + (R * dl)
+    #print('water ' + water.name + ' ' + str(dt) + ' ' + str(R*dl))
     return retval
